@@ -3,3 +3,4 @@ test/server_root/logs/
 build
 dist
 doc
+.eunit

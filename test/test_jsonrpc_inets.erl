@@ -47,7 +47,9 @@ start() ->
 
 start_httpd() ->
     rfc4627_jsonrpc:start(),
-    httpd:start("test/server_root/conf/httpd.conf"),
+    application:start(inets),
+    file:make_dir("test/server_root/logs"),
+    inets:start(httpd,[{file,"test/server_root/conf/httpd.conf"}]),
     start().
 
 %---------------------------------------------------------------------------
